@@ -3,14 +3,26 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { HomeComponent } from './components/home/home.component';
+import { RouterModule, Routes } from '@angular/router';
+
+const app_routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: '**', pathMatch: 'full', redirectTo: '' }
+];
+
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(app_routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
