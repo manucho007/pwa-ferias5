@@ -10,11 +10,14 @@ import { LoginComponent } from './ui/login/login.component';
 import { AngularFireModule} from 'angularfire2';
 import { environment} from '../environments/environment';
 import { CoreModule } from './core/core.module';
+import { ProfileComponent } from './ui/profile/profile.component';
+import { AuthGuard } from './core/auth.guard';
 
 
 const app_routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: '**', pathMatch: 'full', redirectTo: '' }
 ];
 
@@ -25,14 +28,16 @@ const app_routes: Routes = [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(app_routes),
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    CoreModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
