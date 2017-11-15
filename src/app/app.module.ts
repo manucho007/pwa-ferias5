@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './ui/login/login.component';
+import { LoginComponent } from './ui/user-login/login.component';
 import { AngularFireModule} from 'angularfire2';
 import { environment} from '../environments/environment';
 import { CoreModule } from './core/core.module';
-import { ProfileComponent } from './ui/profile/profile.component';
+import { ProfileComponent } from './ui/user-profile/profile.component';
 import { AuthGuard } from './core/auth.guard';
-import { UsersListComponent } from './ui/users-list/users-list.component';
+import { UserFormComponent } from './ui/user-form/user-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 const app_routes: Routes = [
@@ -31,13 +33,15 @@ const app_routes: Routes = [
     HomeComponent,
     LoginComponent,
     ProfileComponent,
-    UsersListComponent
+    UserFormComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule.forRoot(app_routes),
     AngularFireModule.initializeApp(environment.firebase),
-    CoreModule
+    CoreModule,
+    ReactiveFormsModule 
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

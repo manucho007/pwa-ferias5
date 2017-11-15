@@ -16,6 +16,7 @@ interface User {
 }
 @Injectable()
 export class AuthService {
+
   user: Observable<User>;
 
   constructor(private afAuth: AngularFireAuth,
@@ -129,17 +130,16 @@ export class AuthService {
       photoURL: user.photoURL || 'https://goo.gl/Fz9nrQ'
     }
 
-    // return userRef.set(data) //old
-    // Checks if the user exists instead of creating a new one every time
     return  userRef.update(data)
-      .then(() => {
-        // update successful (document exists)
-        console.log('Usuario existe');
-      })
-      .catch((error) => {
-        // console.log('Error updating user', error); // (document does not exists)
-        userRef.set(data);
-      })
+  .then(() => {
+    // update successful (document exists)
+    console.log('Usuario existe');
+  })
+  .catch((error) => {
+    // console.log('Error updating user', error); // (document does not exists)
+    userRef.set(data);
+  })
 
   }
+
 }
