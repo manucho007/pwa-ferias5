@@ -12,12 +12,13 @@ import { environment} from '../environments/environment';
 import { CoreModule } from './core/core.module';
 import { ProfileComponent } from './ui/profile/profile.component';
 import { AuthGuard } from './core/auth.guard';
+import { UsersListComponent } from './ui/users-list/users-list.component';
 
 
 const app_routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  { path: 'profile', component: ProfileComponent },
   { path: '**', pathMatch: 'full', redirectTo: '' }
 ];
 
@@ -29,7 +30,8 @@ const app_routes: Routes = [
     NavbarComponent,
     HomeComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    UsersListComponent
   ],
   imports: [
     BrowserModule,
