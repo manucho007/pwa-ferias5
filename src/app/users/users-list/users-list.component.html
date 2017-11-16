@@ -1,0 +1,21 @@
+
+<table class="table table-striped table-hover table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th>#</th>
+      <th>Nombre</th>
+      <th>Correo</th>
+      <th>Nacionalidad</th>
+      <th>Técnica</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users |async" >
+      <td>1</td>
+      <td>{{user.displayName}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.nationality}}</td>
+      <td>{{user.technique}}</td>
+    </tr>
+  </tbody>
+</table>

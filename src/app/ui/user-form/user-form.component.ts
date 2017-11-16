@@ -10,6 +10,8 @@ import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angula
 export class UserFormComponent implements OnInit {
 
   userForm: FormGroup;
+  // userDetailForm: FormGroup;
+  // createdUser = false;
   newUser = true; // to toggle login or signup form
   passReset = false; // set to true when password reset is triggered
   formErrors = {
@@ -33,14 +35,17 @@ export class UserFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.buildForm();
+    // this.detailForm();
   }
+
 
   toggleForm() {
     this.newUser = !this.newUser;
   }
 
   signup(): void {
-    this.auth.emailSignUp(this.userForm.value['email'], this.userForm.value['password'])
+    // this.createdUser=!this.createdUser;
+    this.auth.emailSignUp(this.userForm.value['email'], this.userForm.value['password']);
   }
 
   login(): void {
@@ -51,6 +56,8 @@ export class UserFormComponent implements OnInit {
     this.auth.resetPassword(this.userForm.value['email'])
       .then(() => this.passReset = true)
   }
+
+
 
   buildForm(): void {
     this.userForm = this.fb.group({
@@ -66,10 +73,28 @@ export class UserFormComponent implements OnInit {
       ]
       ],
     });
-
     this.userForm.valueChanges.subscribe(data => this.onValueChanged(data));
     this.onValueChanged(); // reset validation messages
   }
+
+  // detailForm(): void{
+  //   this.userDetailForm = this.fb.group({
+  //     'displayName': ['',[Validators.required]],
+  //     'nationality': ['',[Validators.required]],
+  //     'technique': ['',[Validators.required]],
+  //     })
+  //   }
+
+  // get displayName(){return this.userDetailForm.get('displayName')};
+  // get nationality(){return this.userDetailForm.get('nationality')};
+  // get technique(){return this.userDetailForm.get('technique')};
+  //
+  //   setUserDetails(user){
+  //   return this.auth.updateUser(user, {displayName: this.displayName.value,
+  //                                      technique:this.technique.value,
+  //                                      nationality:this.nationality.value})
+  //   }
+
 
   // Updates validation state on form changes.
   onValueChanged(data?: any) {

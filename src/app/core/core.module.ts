@@ -9,7 +9,7 @@ import { FirestoreService } from './firestore.service';
   imports: [
     CommonModule,
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule.enablePersistence()
   ],
   declarations: [],
   providers: [AuthService, NotifyService, FirestoreService]

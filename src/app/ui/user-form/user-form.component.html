@@ -1,24 +1,26 @@
 
 <form [formGroup]="userForm"  *ngIf="newUser"  (ngSubmit)="signup()">
 
-  <h3>New User Signup</h3>
-  <p class="button is-small" (click)="toggleForm()">Already Registered?</p>
+  <h3>Nuevo Usuario</h3>
+  <p class="btn btn-warning" (click)="toggleForm()">Already Registered?</p>
   <hr>
 
   <label for="email">Email</label>
   <input type="email" id="email" class="input"
          formControlName="email" required >
-
-  <div *ngIf="formErrors.email" class="notification is-danger">
-    {{ formErrors.email }}
+  <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su email con nadie.</small>
+  <div *ngIf="formErrors.email" class="alert alert-dismissible alert-success">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>{{ formErrors.email }}</strong>
   </div>
-
+  
   <label for="password">Password</label>
   <input type="password" id="password" class="input"
          formControlName="password" required >
 
-  <div *ngIf="formErrors.password" class="notification is-danger">
-    {{ formErrors.password }}
+  <div *ngIf="formErrors.password" class="alert alert-dismissible alert-success">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>{{ formErrors.password }}</strong>
   </div>
 
   <div *ngIf="userForm.valid" class="notification is-success">Form is valid</div>
@@ -32,8 +34,8 @@
 
 <form [formGroup]="userForm"  *ngIf="!newUser"  (ngSubmit)="login()">
 
-  <h3>Existing User Login</h3>
-  <p class="btn button is-small" (click)="toggleForm()">New User?</p>
+  <h3>Usuario Existente</h3>
+  <p class="btn btn-warning" (click)="toggleForm()">New User?</p>
   <hr>
 
   <label for="email">Email</label>
@@ -61,3 +63,24 @@
 
 
 </form>
+
+<!-- <form [formGroup]="userDetailForm" *ngIf="newUser && createdUser" (ngSubmit)="setUserData(user)">
+
+    <h3>Ingrese sus datos personales</h3>
+
+    <label for="displayName">Nombre de usuario</label>
+    <input type="test" class="input"
+            formControlName="displayName" required autocomplete="off">
+    <label for="nationality">Nacionalidad</label>
+    <input type="test" class="input"
+           formControlName="nationality" required autocomplete="off">
+    <label for="technique">Tecnica</label>
+    <input type="test" class="input"
+           formControlName="technique" required autocomplete="off">
+
+
+
+    <button type="submit" class="button is-success" [disabled]="!detailForm.valid">Submit</button>
+
+
+  </form> -->

@@ -13,6 +13,9 @@ interface User {
   photoURL?: string;
   displayName?: string;
   isAdmin?:boolean;
+  nationality?:boolean;
+  technique?:boolean;
+
 }
 @Injectable()
 export class AuthService {
@@ -91,6 +94,11 @@ export class AuthService {
       .catch(error => this.handleError(error) );
   }
 
+// Updates the user data
+  updateUser(user:User, data:any){
+    return this.afs.doc(`users/${user.uid}`).update(data);
+  };
+
   emailLogin(email: string, password: string) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .catch(error => this.handleError(error) );
@@ -126,19 +134,19 @@ export class AuthService {
     const data: User = {
       uid: user.uid,
       email: user.email || null,
-      displayName: user.displayName || 'Usuario Sin Nombre',
+      displayName: user.displayName || 'invitado',
       photoURL: user.photoURL || 'https://goo.gl/Fz9nrQ'
     }
 
     return  userRef.update(data)
-  .then(() => {
-    // update successful (document exists)
-    console.log('Usuario existe');
-  })
-  .catch((error) => {
-    // console.log('Error updating user', error); // (document does not exists)
-    userRef.set(data);
-  })
+      .then(() => {
+        // update successful (document exists)
+        console.log('Usuario existe');
+      })
+      .catch((error) => {
+        // console.log('Error updating user', error); // (document does not exists)
+        userRef.set(data);
+      })
 
   }
 

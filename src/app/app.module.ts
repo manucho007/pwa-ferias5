@@ -14,6 +14,7 @@ import { ProfileComponent } from './ui/user-profile/profile.component';
 import { AuthGuard } from './core/auth.guard';
 import { UserFormComponent } from './ui/user-form/user-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UsersListComponent } from './users/users-list/users-list.component';
 
 
 
@@ -21,6 +22,7 @@ const app_routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },
+  { path: 'users-list', component: UsersListComponent,  canActivate: [AuthGuard] },
   { path: '**', pathMatch: 'full', redirectTo: '' }
 ];
 
@@ -33,7 +35,8 @@ const app_routes: Routes = [
     HomeComponent,
     LoginComponent,
     ProfileComponent,
-    UserFormComponent
+    UserFormComponent,
+    UsersListComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,7 @@ const app_routes: Routes = [
     RouterModule.forRoot(app_routes),
     AngularFireModule.initializeApp(environment.firebase),
     CoreModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
