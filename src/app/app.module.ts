@@ -15,6 +15,8 @@ import { AuthGuard } from './core/auth.guard';
 import { UserFormComponent } from './ui/user-form/user-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsersListComponent } from './users/users-list/users-list.component';
+import { StandsListComponent } from './stands/stands-list/stands-list.component';
+import { StandsAddComponent } from './stands/stands-add/stands-add.component';
 
 
 
@@ -23,6 +25,7 @@ const app_routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'users-list', component: UsersListComponent,  canActivate: [AuthGuard] },
+  { path: 'stands-list', component: StandsListComponent,  canActivate: [AuthGuard] },
   { path: '**', pathMatch: 'full', redirectTo: '' }
 ];
 
@@ -36,7 +39,9 @@ const app_routes: Routes = [
     LoginComponent,
     ProfileComponent,
     UserFormComponent,
-    UsersListComponent
+    UsersListComponent,
+    StandsListComponent,
+    StandsAddComponent
   ],
   imports: [
     BrowserModule,

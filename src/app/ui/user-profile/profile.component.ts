@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AuthService } from '../../core/auth.service';
 @Component({
-  selector: 'app-profile',
+  selector: 'user-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css'],
   encapsulation: ViewEncapsulation.None

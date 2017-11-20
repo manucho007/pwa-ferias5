@@ -4,7 +4,7 @@ import { AuthService } from '../../core/auth.service';
 
 import { ReactiveFormsModule } from '@angular/forms';
 @Component({
-  selector: 'app-login',
+  selector: 'user-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
   encapsulation: ViewEncapsulation.None
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
 
     private afterSignIn(): void {
       // Do after login stuff here, such router redirects, toast messages, etc.
-      this.router.navigate(['profile']);
+      this.router.navigate(['/']);
     }
 
 }

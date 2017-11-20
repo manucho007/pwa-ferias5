@@ -17,11 +17,29 @@
 
 <!-- User logged in -->
 <ng-template #authenticated>
-    <div *ngIf="auth.user | async as user">
+    <!-- <div *ngIf="auth.user | async as user">
         <h3>Bienvenido, {{ user.displayName }}</h3>
         <h3 *ngIf="user.isAdmin">Administrador</h3>
         <img class="card-img-top" [src]="user.photoURL || 'https://api.adorable.io/avatars/109/fire.png'" width=50px>
         <p class="text-truncate">UID: {{ user.uid }}</p>
         <button class="button" (click)="logout()">Logout</button>
+    </div> -->
+
+    <div class="container">
+      <div *ngIf="auth.user | async as user" class="card">
+        <h3 class="card-header">{{ user.displayName }}</h3>
+        <div class="card-body">
+          <h5 class="card-title">{{user.email}}</h5>
+          <h6 class="card-subtitle text-muted">Support card subtitle</h6>
+        </div>
+        <img style="height: 100%; width: 100%; display: block;" [src]="user.photoURL || 'https://api.adorable.io/avatars/109/fire.png'" alt="Card image">
+        <div class="card-body">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="card-link">Edit Data</a>
+        </div>
+        <div class="card-footer text-muted">
+          UID: {{ user.uid }}
+        </div>
+      </div>
     </div>
 </ng-template>
