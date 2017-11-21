@@ -12,6 +12,7 @@ import { environment} from '../environments/environment';
 import { CoreModule } from './core/core.module';
 import { ProfileComponent } from './ui/user-profile/profile.component';
 import { AuthGuard } from './core/auth.guard';
+import { AuthAdminGuard } from './core/auth-admin.guard';
 import { UserFormComponent } from './ui/user-form/user-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsersListComponent } from './users/users-list/users-list.component';
@@ -51,7 +52,10 @@ const app_routes: Routes = [
     CoreModule,
     ReactiveFormsModule
   ],
-  providers: [AuthGuard],
+  providers: [
+    AuthGuard,
+    AuthAdminGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

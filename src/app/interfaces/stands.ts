@@ -3,5 +3,5 @@ export interface Stand {
   size: string;
   floor: string;
   price: number;
-  isBought:boolean;
+  available:boolean;
 }

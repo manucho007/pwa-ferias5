@@ -25,7 +25,7 @@ export class FirestoreService {
 
   // Thank to the changes in angularfire2 the Reference is decoupled from the observable data
 
-  // ****Get Data ******
+  // ****Get Data ****** Snapshot
   doc$<T>(ref: DocPredicate<T>):Observable<T>{
    return this.doc(ref).snapshotChanges().map(doc=>{
      return doc.payload.data() as T;
@@ -38,6 +38,8 @@ export class FirestoreService {
     })
   }
 
+
+
   // return the collection with the ids
   colWithIds$<T>(ref:CollectionPredicate<T>,queryFn?):Observable<any[]>{
   return this.col(ref,queryFn).snapshotChanges().map(actions =>{
@@ -49,6 +51,14 @@ export class FirestoreService {
   });
   }
 
+  // **Get Data RealTime
+  realTcol$<T>(ref:CollectionPredicate<T>,queryFn?):Observable<T[]>{
+    return this.col(ref, queryFn).valueChanges();
+  }
+
+  realTdoc$<T>(ref: DocPredicate<T>):Observable<T>{
+   return this.doc(ref).valueChanges();
+  }
 
   // Write Data
   // firebase serve timestamp

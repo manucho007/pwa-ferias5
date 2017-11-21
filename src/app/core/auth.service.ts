@@ -6,17 +6,8 @@ import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firesto
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/switchMap'
 import { NotifyService } from './notify.service';
+import { User } from '../interfaces/user';
 
-interface User {
-  uid: string;
-  email: string;
-  photoURL?: string;
-  displayName?: string;
-  isAdmin?:boolean;
-  nationality?:boolean;
-  technique?:boolean;
-
-}
 @Injectable()
 export class AuthService {
 
@@ -133,9 +124,10 @@ export class AuthService {
 
     const data: User = {
       uid: user.uid,
-      email: user.email || null,
+      email: user.email || 'example@example.com',
       displayName: user.displayName || 'invitado',
-      photoURL: user.photoURL || 'https://goo.gl/Fz9nrQ'
+      photoURL: user.photoURL || 'https://goo.gl/Fz9nrQ',
+      isAdmin: false
     }
 
     return  userRef.update(data)
