@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FirestoreService} from '../../core/firestore.service';
-// import { AuthService} from '../../core/auth.service';
+import { AuthService} from '../../core/auth.service';
 import { Observable} from 'rxjs/Observable';
 interface Stand {
   id: string;
