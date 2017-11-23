@@ -31,13 +31,42 @@
           <p class="card-text">Nacionalidad: {{user.nationality}}</p>
           <p class="card-text">Actividad Primaria: {{user.mainActivity}}</p>
           <p class="card-text">Actividad Secundaria: {{user.secondActivity}}</p>
-          <a href="#" class="card-link">Edit Data</a>
+          <!-- <a href="#" class="card-link">Edit Data</a> -->
+          <button type="button" (click)="editUser($event)"  *ngIf="!editState" class="btn btn-info">Editar Datos</button>
+          <button type="button" *ngIf="editState" (click)="clearState()" class="btn btn-info">Cerrar</button>
+
           <button type="button" class="btn btn-danger" (click)="logout()">Logout</button>
+
+          <div *ngIf="editState">
+            <form (ngSubmit)="updateUserData(user)">
+              <div class="form-group">
+               <input type="text" disabled class="form-control" [(ngModel)]="user.uid" name="title" placeholder="UID">
+             </div>
+             <div class="form-group">
+                <input type="text" class="form-control" [(ngModel)]="user.displayName" name="displayName" placeholder="Nombre">
+             </div>
+             <div class="form-group">
+               <input type="text" class="form-control" [(ngModel)]="user.email" name="email" placeholder="email">
+             </div>
+             <div class="form-group">
+                <input type="text" class="form-control" [(ngModel)]="user.nationality" name="nationality" placeholder="Nacionalidad">
+             </div>
+             <div class="form-group">
+               <input type="text" class="form-control" [(ngModel)]="user.mainActivity" name="mainActivity" placeholder="Actividad Primaria">
+             </div>
+             <div class="form-group">
+                <input type="text" class="form-control" [(ngModel)]="user.secondActivity" name="secondActivity" placeholder="Actividad Secundaria">
+              </div>
+
+
+              <button value="Submit" class="btn btn-success">Actualizar</button>
+            </form>
+          </div>
+
         </div>
         <div class="card-footer text-muted">
           UID: {{ user.uid }}
         </div>
       </div>
     </div>
-
 </ng-template>
