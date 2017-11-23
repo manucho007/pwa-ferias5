@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AuthService } from '../../core/auth.service';
 import { User } from '../../interfaces/user';
-import { Observable} from 'rxjs/Observable';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'user-profile',
@@ -10,9 +10,7 @@ import { Observable} from 'rxjs/Observable';
   encapsulation: ViewEncapsulation.None
 })
 export class ProfileComponent implements OnInit {
-userSelected:User;
-userRef:Observable<User>;
-editState: boolean = false;
+  editState: boolean = false;
   constructor(public auth: AuthService) { }
 
   ngOnInit() {
@@ -23,26 +21,26 @@ editState: boolean = false;
     this.auth.signOut();
   };
 
-  editUser(){
+  editUser() {
     this.editState = true;
 
   };
 
-  clearState(){
-      this.editState = false;
+  clearState() {
+    this.editState = false;
   };
 
-  updateUserData(user){
+  updateUserData(user) {
 
-    const data:User= {
+    const data: User = {
       uid: user.uid,
-      email:user.email,
-      displayName:user.displayName,
-      nationality:user.nationality,
-      mainActivity:user.mainActivity,
-      secondActivity:user.secondActivity
-      }
-    this.auth.updateUser(user,data);
+      email: user.email,
+      displayName: user.displayName,
+      nationality: user.nationality,
+      mainActivity: user.mainActivity,
+      secondActivity: user.secondActivity
+    }
+    this.auth.updateUser(user, data);
     this.clearState();
   };
 }

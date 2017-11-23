@@ -3,23 +3,23 @@
   <h3>Social Login</h3>
 
 
-    <button (click)="signInWithGoogle()" class="button btn-social btn-google">
-      <i class="fa fa-google fa-lg"></i> Connect Google
+    <button (click)="signInWithGoogle()" class="btn btn-danger">
+      <i class="fa fa-google fa-lg"></i>  Google Login
     </button>
 
-    <button (click)="signInWithFacebook()" class="button  btn-social btn-facebook" >
-      <i class="fa fa-facebook fa-lg"></i> Connect Facebook
+    <button (click)="signInWithFacebook()" class="btn btn-primary" >
+      <i class="fa fa-facebook fa-lg"></i> Facebook Login
     </button>
 
-    <button (click)="signInWithTwitter()" class="button  btn-social btn-twitter" >
-      <i class="fa fa-twitter fa-lg"></i> Connect Twitter
+    <button (click)="signInWithTwitter()" class="btn btn-info" >
+      <i class="fa fa-twitter fa-lg"></i> Twitter Login
     </button>
 
     <hr>
 
     <h3> Login Anónimo</h3>
 
-      <button (click)="signInAnonymously()" class="button button-info">
+      <button (click)="signInAnonymously()" class="btn btn-secondary">
         <i class="fa fa-user-secret fa-lg"></i> Conectar Anonimamente
       </button>
 
@@ -35,6 +35,6 @@
 
 <ng-template #alreadyLoggedIn>
   <p class="text-success">
-    Sesión iniciada 
+    Sesión iniciada
   </p>
 </ng-template>

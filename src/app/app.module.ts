@@ -19,7 +19,6 @@ import { UsersListComponent } from './users/users-list/users-list.component';
 import { StandsListComponent } from './stands/stands-list/stands-list.component';
 import { StandsAddComponent } from './stands/stands-add/stands-add.component';
 import { UsersAddComponent } from './users/users-add/users-add.component';
-import { UserEditComponent } from './ui/user-edit/user-edit.component';
 
 
 
@@ -29,6 +28,8 @@ const app_routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'users-list', component: UsersListComponent,  canActivate: [AuthGuard] },
   { path: 'stands-list', component: StandsListComponent,  canActivate: [AuthGuard] },
+  { path: 'users-add', component: UsersAddComponent,canActivate:[AuthAdminGuard] },
+  { path: 'stands-add', component: StandsAddComponent,canActivate:[AuthAdminGuard] },
   { path: '**', pathMatch: 'full', redirectTo: '' }
 ];
 
@@ -45,8 +46,7 @@ const app_routes: Routes = [
     UsersListComponent,
     StandsListComponent,
     StandsAddComponent,
-    UsersAddComponent,
-    UserEditComponent
+    UsersAddComponent
   ],
   imports: [
     BrowserModule,

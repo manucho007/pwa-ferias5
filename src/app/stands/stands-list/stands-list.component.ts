@@ -4,7 +4,7 @@ import { AuthService} from '../../core/auth.service';
 import { Observable} from 'rxjs/Observable';
 import { Stand } from '../../interfaces/stands';
 @Component({
-  selector: 'app-stands-list',
+  selector: 'stands-list',
   templateUrl: './stands-list.component.html',
   styleUrls: ['./stands-list.component.css'],
   encapsulation: ViewEncapsulation.None
