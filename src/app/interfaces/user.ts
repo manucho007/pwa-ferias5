@@ -4,8 +4,7 @@ export interface User {
   photoURL?: string;
   displayName?: string;
   isAdmin?:boolean;
-  nationality?:boolean;
-  technique?:boolean;
+  nationality?:string;
   mainActivity?:string;
   secondActivity?:string;
 }

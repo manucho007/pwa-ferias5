@@ -126,14 +126,13 @@ export class AuthService {
       uid: user.uid,
       email: user.email || 'example@example.com',
       displayName: user.displayName || 'invitado',
-      photoURL: user.photoURL || 'https://goo.gl/Fz9nrQ',
-      isAdmin: false
+      photoURL: user.photoURL || 'https://cad.onshape.com/images/placeholder-user.png'
     }
 
     return  userRef.update(data)
       .then(() => {
         // update successful (document exists)
-        console.log('Usuario existe');
+        console.log('Usuario existente');
       })
       .catch((error) => {
         // console.log('Error updating user', error); // (document does not exists)

@@ -1,0 +1,31 @@
+<div class="card border-info">
+  <h3 class="card-header">Añadir Usuario</h3>
+  <div class="card-body">
+    <form (ngSubmit)="userAdd()">
+      <fieldset>
+        <legend>Datos del Expositor</legend>
+        <div class="form-group">
+          <label for="displayName">Nombre del Expositor</label>
+          <input type="text" name="displayName" class="form-control" [(ngModel)]="user.displayName" placeholder="Nombre del expositor">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" name="email" class="form-control" [(ngModel)]="user.email" placeholder="Email del expositor">
+        </div>
+        <div class="form-group">
+          <label for="nationality">Nacionalidad</label>
+          <input type="text" name="nationality" class="form-control" [(ngModel)]="user.nationality" placeholder="Nacionalidad del expositor">
+        </div>
+        <div class="form-group">
+          <label for="mainActivity">Actividad Primaria</label>
+          <input type="text" name="mainActivity" class="form-control" [(ngModel)]="user.mainActivity" placeholder="Actividad primaria del expositor">
+        </div>
+        <div class="form-group">
+          <label for="secondActivity">Actividad Secundaria</label>
+          <input type="text" name="secondActivity" class="form-control" [(ngModel)]="user.secondActivity" placeholder="Actividad secundaria del expositor">
+        </div>
+        <input type="submit" value="Submit" class="btn">
+      </fieldset>
+    </form>
+  </div>
+</div>

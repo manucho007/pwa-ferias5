@@ -26,9 +26,11 @@
           <h6 class="card-subtitle text-muted" *ngIf="user.isAdmin">Admin</h6>
           <h6 class="card-subtitle text-muted" *ngIf="!user.isAdmin">Regular</h6>
         </div>
-        <img style="height: 50%; width: 70%; display: block;" [src]="user.photoURL || 'https://api.adorable.io/avatars/109/fire.png'" alt="Card image">
+        <img style="height: 50%; width: 70%; display: block;" [src]="user.photoURL || 'https://cad.onshape.com/images/placeholder-user.png'" alt="Card image">
         <div class="card-body">
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <p class="card-text">Nacionalidad: {{user.nationality}}</p>
+          <p class="card-text">Actividad Primaria: {{user.mainActivity}}</p>
+          <p class="card-text">Actividad Secundaria: {{user.secondActivity}}</p>
           <a href="#" class="card-link">Edit Data</a>
           <button type="button" class="btn btn-danger" (click)="logout()">Logout</button>
         </div>
