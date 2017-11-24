@@ -77,25 +77,6 @@ export class UserFormComponent implements OnInit {
     this.onValueChanged(); // reset validation messages
   }
 
-  // detailForm(): void{
-  //   this.userDetailForm = this.fb.group({
-  //     'displayName': ['',[Validators.required]],
-  //     'nationality': ['',[Validators.required]],
-  //     'technique': ['',[Validators.required]],
-  //     })
-  //   }
-
-  // get displayName(){return this.userDetailForm.get('displayName')};
-  // get nationality(){return this.userDetailForm.get('nationality')};
-  // get technique(){return this.userDetailForm.get('technique')};
-  //
-  //   setUserDetails(user){
-  //   return this.auth.updateUser(user, {displayName: this.displayName.value,
-  //                                      technique:this.technique.value,
-  //                                      nationality:this.nationality.value})
-  //   }
-
-
   // Updates validation state on form changes.
   onValueChanged(data?: any) {
     if (!this.userForm) { return; }

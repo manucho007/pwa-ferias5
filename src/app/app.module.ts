@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
-import { HomeComponent } from './components/home/home.component';
+import { NavbarComponent } from './ui/navbar/navbar.component';
+import { HomeComponent } from './ui/home/home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './ui/user-login/login.component';
 import { AngularFireModule} from 'angularfire2';
