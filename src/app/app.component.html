@@ -1,16 +1,16 @@
 <app-navbar></app-navbar>
 
-<user-profile></user-profile>
-<div *ngIf="notify.msg | async as msg" class="notification"
+
+<div *ngIf="notify.msg | async as msg" class="alert alert-dismissible"
       [ngClass]="{
-                   'is-danger': msg.style == 'error',
-                   'is-success': msg.style == 'success',
-                   'is-info': msg.style == 'info'
+                   'alert-danger': msg.style == 'error',
+                   'alert-success': msg.style == 'success',
+                   'alert-info': msg.style == 'info'
                   }">
 
-   <button class="delete" (click)="notify.clear()"></button>
+   <button class="close" data-dismiss="alert" (click)="notify.clear()">&times;</button>
    {{ msg.content }}
 
  </div>
-
+<user-profile></user-profile>
 <router-outlet></router-outlet>

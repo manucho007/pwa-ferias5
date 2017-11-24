@@ -58,7 +58,7 @@ getUser(){
   private oAuthLogin(provider) {
     return this.afAuth.auth.signInWithPopup(provider)
       .then((credential) => {
-        this.notify.update('Welcome to Firestarter!!!', 'success')
+        this.notify.update('Bienvenido!!!', 'success')
         return this.updateUserData(credential.user)
       })
       .catch(error => this.handleError(error) );
@@ -70,7 +70,7 @@ getUser(){
   anonymousLogin() {
     return this.afAuth.auth.signInAnonymously()
       .then((user) => {
-        this.notify.update('Welcome to Firestarter!!!', 'success')
+        this.notify.update('Bienvenido!!!', 'success')
         return this.updateUserData(user) // if using firestore
       })
       .catch(error => this.handleError(error) );
@@ -81,7 +81,7 @@ getUser(){
   emailSignUp(email: string, password: string) {
     return this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((user) => {
-        this.notify.update('Welcome to Firestarter!!!', 'success')
+        this.notify.update('Bienvenido!!!', 'success')
         return this.updateUserData(user) // if using firestore
       })
       .catch(error => this.handleError(error) );
@@ -102,7 +102,7 @@ getUser(){
     const fbAuth = firebase.auth();
 
     return fbAuth.sendPasswordResetEmail(email)
-      .then(() => this.notify.update('Password update email sent', 'info'))
+      .then(() => this.notify.update('Correo para actualizar la contraseña fue enviado', 'info'))
       .catch((error) => this.handleError(error) )
   }
 

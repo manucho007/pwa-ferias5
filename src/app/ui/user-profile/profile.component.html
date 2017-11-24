@@ -9,15 +9,18 @@
 
 <!-- User NOT logged in -->
 <ng-template #guest class="box">
+  <div class="container">
     <h3>Bienvenido</h3>
     <p class="card-text">Inicia sesión para continuar</p>
     <button class="button" routerLink="/login">Login</button>
+  </div>
+
 </ng-template>
 
 
 <!-- User logged in -->
 <ng-template #authenticated>
-
+  <div class="container">
     <div class="col-md-auto">
       <div *ngIf="auth.user | async as user" class="card">
         <h3 class="card-header">{{ user.displayName }}</h3>
@@ -26,12 +29,11 @@
           <h6 class="card-subtitle text-muted" *ngIf="user.isAdmin">Admin</h6>
           <h6 class="card-subtitle text-muted" *ngIf="!user.isAdmin">Regular</h6>
         </div>
-        <img style="height: 50%; width: 70%; display: block;" [src]="user.photoURL || 'https://cad.onshape.com/images/placeholder-user.png'" alt="Card image">
+        <img style="height: 100px width: 100%; display: block;" [src]="user.photoURL || 'https://cad.onshape.com/images/placeholder-user.png'" alt="Card image">
         <div class="card-body">
           <p class="card-text">Nacionalidad: {{user.nationality}}</p>
           <p class="card-text">Actividad Primaria: {{user.mainActivity}}</p>
           <p class="card-text">Actividad Secundaria: {{user.secondActivity}}</p>
-          <!-- <a href="#" class="card-link">Edit Data</a> -->
           <button type="button" (click)="editUser($event)"  *ngIf="!editState" class="btn btn-info">Editar Datos</button>
           <button type="button" *ngIf="editState" (click)="clearState()" class="btn btn-info">Cerrar</button>
 
@@ -67,4 +69,6 @@
         </div>
       </div>
     </div>
+  </div>
+
 </ng-template>

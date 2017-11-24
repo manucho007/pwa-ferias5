@@ -22,5 +22,9 @@ stand:Stand ={
   }
   addStand(){
   this.db.add('stands',this.stand);
+  this.stand.id= '';
+  this.stand.size= '';
+  this.stand.floor= '';
+  this.stand.price= 0;
   }
 }
