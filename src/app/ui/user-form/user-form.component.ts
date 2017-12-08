@@ -10,8 +10,6 @@ import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angula
 export class UserFormComponent implements OnInit {
 
   userForm: FormGroup;
-  // userDetailForm: FormGroup;
-  // createdUser = false;
   newUser = true; // to toggle login or signup form
   passReset = false; // set to true when password reset is triggered
   formErrors = {

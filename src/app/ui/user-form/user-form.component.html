@@ -26,10 +26,8 @@
   <div *ngIf="userForm.valid" class="notification is-success">Datos Aceptados</div>
   <button type="submit" class="btn btn-success" [disabled]="!userForm.valid">Enviar</button>
 
-
-
-
 </form>
+
 
 
 <form [formGroup]="userForm"  *ngIf="!newUser"  (ngSubmit)="login()">
@@ -58,29 +56,8 @@
 
   <span *ngIf="userForm.valid" class="help is-success">Datos Aceptados</span>
 
-  <a *ngIf="!passReset && userForm.controls.email.valid" class="help is-info" (click)="resetPassword()">Reset Password for {{userForm.value.email}}?</a>
+  <a *ngIf="!passReset && userForm.controls.email.valid" class="help is-info" (click)="resetPassword()">Cambiar la contraseña para: {{userForm.value.email}}?</a>
   <p *ngIf="passReset" class="help is-info">Reset requested. Check your email instructions.</p>
 
 
 </form>
-
-<!-- <form [formGroup]="userDetailForm" *ngIf="newUser && createdUser" (ngSubmit)="setUserData(user)">
-
-    <h3>Ingrese sus datos personales</h3>
-
-    <label for="displayName">Nombre de usuario</label>
-    <input type="test" class="input"
-            formControlName="displayName" required autocomplete="off">
-    <label for="nationality">Nacionalidad</label>
-    <input type="test" class="input"
-           formControlName="nationality" required autocomplete="off">
-    <label for="technique">Tecnica</label>
-    <input type="test" class="input"
-           formControlName="technique" required autocomplete="off">
-
-
-
-    <button type="submit" class="button is-success" [disabled]="!detailForm.valid">Submit</button>
-
-
-  </form> -->
