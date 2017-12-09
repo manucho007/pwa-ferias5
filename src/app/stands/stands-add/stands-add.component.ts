@@ -21,7 +21,8 @@ stand:Stand ={
   ngOnInit() {
   }
   addStand(){
-  this.db.add('stands',this.stand);
+  // this.db.add('stands',this.stand);
+  this.db.set(`stands/${this.stand.id}`,this.stand);
   this.stand.id= '';
   this.stand.size= '';
   this.stand.floor= '';

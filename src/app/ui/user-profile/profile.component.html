@@ -32,6 +32,7 @@
         <img style="height: 100px width: 100%; display: block;" [src]="user.photoURL || 'https://cad.onshape.com/images/placeholder-user.png'" alt="Card image">
         <div class="card-body">
           <p class="card-text">Nacionalidad: {{user.nationality}}</p>
+          <p class="card-text">Empresa: {{user.company}}</p>
           <p class="card-text">Actividad Primaria: {{user.mainActivity}}</p>
           <p class="card-text">Actividad Secundaria: {{user.secondActivity}}</p>
           <button type="button" (click)="editUser($event)"  *ngIf="!editState" class="btn btn-info">Editar Datos</button>
@@ -43,22 +44,13 @@
             <form (ngSubmit)="updateUserData(user)">
               <div class="form-group">
                <input type="text" disabled class="form-control" [(ngModel)]="user.uid" name="title" placeholder="UID">
-             </div>
-             <div class="form-group">
-                <input type="text" class="form-control" [(ngModel)]="user.displayName" name="displayName" placeholder="Nombre">
-             </div>
-             <div class="form-group">
+               <input type="text" class="form-control" [(ngModel)]="user.displayName" name="displayName" placeholder="Nombre">
                <input type="text" class="form-control" [(ngModel)]="user.email" name="email" placeholder="email">
+               <input type="text" class="form-control" [(ngModel)]="user.nationality" name="nationality" placeholder="Nacionalidad" required>
+               <input type="text" class="form-control" [(ngModel)]="user.company" name="company" placeholder="Empresa" required>
+               <input type="text" class="form-control" [(ngModel)]="user.mainActivity" name="mainActivity" placeholder="Actividad Primaria" required>
+               <input type="text" class="form-control" [(ngModel)]="user.secondActivity" name="secondActivity" placeholder="Actividad Secundaria" required>
              </div>
-             <div class="form-group">
-                <input type="text" class="form-control" [(ngModel)]="user.nationality" name="nationality" placeholder="Nacionalidad">
-             </div>
-             <div class="form-group">
-               <input type="text" class="form-control" [(ngModel)]="user.mainActivity" name="mainActivity" placeholder="Actividad Primaria">
-             </div>
-             <div class="form-group">
-                <input type="text" class="form-control" [(ngModel)]="user.secondActivity" name="secondActivity" placeholder="Actividad Secundaria">
-              </div>
               <button value="Submit" class="btn btn-success">Actualizar</button>
             </form>
           </div>

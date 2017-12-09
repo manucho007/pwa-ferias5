@@ -12,11 +12,13 @@ import { User } from '../../interfaces/user';
 })
 export class UsersListComponent implements OnInit {
   users: Observable<User[]>;
-  order: string = 'nationality';
+  order: string = 'displayName';
   constructor(public db: FirestoreService) { }
 
   ngOnInit() {
-    this.users = this.db.colWithIds$('users', ref => ref.orderBy(this.order, 'asc'));
+    // this.users = this.db.colWithIds$('users', ref => ref.orderBy(this.order, 'asc'));
+    // this.users = this.db.realTcol$('users');
+    this.users = this.db.col$('users')
   }
 
 }

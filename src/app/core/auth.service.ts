@@ -89,7 +89,8 @@ getUser(){
 
 // Updates the user data
   updateUser(user:User, data:any){
-    return this.afs.doc(`users/${user.uid}`).update(data);
+    return this.afs.doc(`users/${user.uid}`).update(data)
+      .catch(error => this.handleError(error) );
   };
 
   emailLogin(email: string, password: string) {

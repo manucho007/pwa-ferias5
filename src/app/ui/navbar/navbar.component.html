@@ -15,12 +15,18 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="users-list" >Expositores</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="stands-buy">Compra de Stands</a>
+      </li>
       <div id="admin" *ngIf="auth.user | async as user">
         <li class="nav-item" >
           <a class="nav-link" routerLink="users-add" *ngIf="user.isAdmin">Añadir Expositores</a>
         </li>
         <li class="nav-item" >
           <a class="nav-link" routerLink="stands-add" *ngIf="user.isAdmin">Añadir Stands</a>
+        </li>
+        <li class="nav-item" >
+          <a class="nav-link" routerLink="stands-sell" *ngIf="user.isAdmin">Venta de Stands</a>
         </li>
       </div>
     </ul>

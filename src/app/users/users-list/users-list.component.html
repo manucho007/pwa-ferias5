@@ -4,6 +4,7 @@
       <tr>
         <th>Nombre</th>
         <th>Correo</th>
+        <th>Empresa</th>
         <th>Nacionalidad</th>
         <th>Actividad Primaria</th>
         <th>Actividad Secundaria</th>
@@ -13,6 +14,7 @@
       <tr *ngFor="let user of users |async" >
         <td>{{user.displayName}}</td>
         <td>{{user.email}}</td>
+        <td>{{user.company}}</td>
         <td>{{user.nationality}}</td>
         <td>{{user.mainActivity}}</td>
         <td>{{user.secondActivity}}</td>

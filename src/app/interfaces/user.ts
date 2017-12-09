@@ -7,4 +7,5 @@ export interface User {
   nationality?:string;
   mainActivity?:string;
   secondActivity?:string;
+  company?:string;
 }

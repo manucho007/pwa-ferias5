@@ -38,7 +38,8 @@ export class ProfileComponent implements OnInit {
       displayName: user.displayName,
       nationality: user.nationality,
       mainActivity: user.mainActivity,
-      secondActivity: user.secondActivity
+      secondActivity: user.secondActivity,
+      company:user.company
     }
     this.auth.updateUser(user, data);
     this.clearState();

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="auth.user | async as user">
   <table class="table table-striped table-hover table-bordered">
     <thead class="thead-dark">
       <tr>
@@ -9,13 +9,13 @@
         <th>Disponible</th>
       </tr>
     </thead>
-    <tbody>
-      <tr *ngFor="let stand of stands |async" >
+    <tbody *ngFor="let stand of stands |async">
+      <tr  *ngIf="stand.available">
         <td>{{stand.id}}</td>
         <td>{{stand.size}}</td>
         <td>{{stand.floor}}</td>
         <td>{{stand.price}} Bs</td>
-        <td>{{stand.available}}</td>
+        <td>Si <button class="btn btn-success" (click)="buyStand(stand.id, user.uid)">Comprar</button> </td>
       </tr>
     </tbody>
   </table>
