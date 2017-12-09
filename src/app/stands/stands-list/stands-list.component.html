@@ -15,7 +15,7 @@
         <td>{{stand.size}}</td>
         <td>{{stand.floor}}</td>
         <td>{{stand.price}} Bs</td>
-        <td>Si <button class="btn btn-success" (click)="buyStand(stand.id, user.uid)">Comprar</button> </td>
+        <td>Si <button class="btn btn-success" (click)="buyStand(stand.id, stand.size, stand.floor, stand.price,user.uid)">Comprar</button> </td>
       </tr>
     </tbody>
   </table>

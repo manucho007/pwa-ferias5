@@ -21,9 +21,9 @@ export class StandsListComponent implements OnInit {
     this.stands = this.db.colWithIds$('stands', ref => ref.orderBy("id",'asc'));
 }
 
-buyStand(standId, userId){
+buyStand(standId, standPrice, standFloor, standSize, userId){
   confirm('Desea comprar el stand?');
-  const purchase:Purchase={idUser:userId,idStand:standId};
+  const purchase:Purchase={idUser:userId,idStand:standId,size:standSize,floor:standFloor,price:standPrice};
   const purchasePath = `purchases/${purchase.idUser}_${purchase.idStand}`;
   this.db.set(purchasePath,purchase);
   console.log(purchase)

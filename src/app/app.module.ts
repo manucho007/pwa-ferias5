@@ -29,6 +29,7 @@ const app_routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   { path: 'users-list', component: UsersListComponent,  canActivate: [AuthGuard] },
   { path: 'stands-list', component: StandsListComponent,  canActivate: [AuthGuard] },
+  { path: 'stands-bought', component: StandsBoughtComponent, canActivate:[AuthGuard] },
   { path: 'users-add', component: UsersAddComponent,canActivate:[AuthAdminGuard] },
   { path: 'stands-add', component: StandsAddComponent,canActivate:[AuthAdminGuard] },
   { path: '**', pathMatch: 'full', redirectTo: '' }
