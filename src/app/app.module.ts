@@ -19,6 +19,7 @@ import { UsersListComponent } from './users/users-list/users-list.component';
 import { StandsListComponent } from './stands/stands-list/stands-list.component';
 import { StandsAddComponent } from './stands/stands-add/stands-add.component';
 import { UsersAddComponent } from './users/users-add/users-add.component';
+import { StandsBoughtComponent } from './stands/stands-bought/stands-bought.component';
 
 
 
@@ -46,7 +47,8 @@ const app_routes: Routes = [
     UsersListComponent,
     StandsListComponent,
     StandsAddComponent,
-    UsersAddComponent
+    UsersAddComponent,
+    StandsBoughtComponent
   ],
   imports: [
     BrowserModule,
