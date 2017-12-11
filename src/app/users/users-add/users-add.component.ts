@@ -16,7 +16,8 @@ user:User={
   email: '',
   nationality:'',
   mainActivity:'',
-  secondActivity:''
+  secondActivity:'',
+  company:''
 }
   constructor(public db:FirestoreService) { }
 

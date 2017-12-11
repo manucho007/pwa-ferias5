@@ -4,4 +4,5 @@ export interface Purchase {
   size?:string;
   price?:number;
   floor?:string;
+  nameClient?:string;
 }

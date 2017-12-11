@@ -127,9 +127,13 @@ getUser(){
 
     const data: User = {
       uid: user.uid,
-      email: user.email || 'example@example.com',
+      email: user.email || 'pruebas@example.com',
       displayName: user.displayName || 'invitado',
-      photoURL: user.photoURL || 'https://cad.onshape.com/images/placeholder-user.png'
+      photoURL: user.photoURL || 'https://cad.onshape.com/images/placeholder-user.png',
+      company:  'test company',
+      nationality:'Boliviana',
+      mainActivity:'Pruebas',
+      secondActivity:'Pruebas'
     }
 
     return  userRef.update(data)

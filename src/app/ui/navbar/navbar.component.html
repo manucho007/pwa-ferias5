@@ -1,10 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary" >
-  <a class="navbar-brand" href="#">PWA Ferias</a>
+  <a class="navbar-brand" href="#">FIDAD Bolivia</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarColor01">
+  <div class="collapse navbar-collapse" id="navbarColor01" *ngIf="auth.user | async as user">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" routerLink="/">Inicio <span class="sr-only">(current)</span></a>
@@ -18,7 +18,17 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/lazy/stands-bought">Mis Stands</a>
       </li>
-      <div id="admin" *ngIf="auth.user | async as user">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download" *ngIf="user.isAdmin">Admin <span class="caret"></span></a>
+        <div class="dropdown-menu" aria-labelledby="download" >
+          <a class="dropdown-item" routerLink="/lazy/users-add" *ngIf="user.isAdmin">Añadir Expositores</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/lazy/stands-add" *ngIf="user.isAdmin">Añadir Stands</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" routerLink="/lazy/stands-sell" *ngIf="user.isAdmin">Venta de Stands</a>
+        </div>
+      </li>
+      <!-- <div id="admin" *ngIf="auth.user | async as user">
         <li class="nav-item" >
           <a class="nav-link" routerLink="/lazy/users-add" *ngIf="user.isAdmin">Añadir Expositores</a>
         </li>
@@ -28,7 +38,7 @@
         <li class="nav-item" >
           <a class="nav-link" routerLink="/lazy/stands-sell" *ngIf="user.isAdmin">Venta de Stands</a>
         </li>
-      </div>
+      </div> -->
     </ul>
 
   </div>

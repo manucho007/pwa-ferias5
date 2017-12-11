@@ -1,3 +1,6 @@
+<div class="conatiner">
+  <img src="../../assets/images/plano_lapaz.jpg" alt="plano" width="100%">
+</div>
 <div class="container" *ngIf="auth.user | async as user">
   <table class="table table-striped table-hover table-bordered">
     <thead class="thead-dark">
@@ -15,7 +18,7 @@
         <td>{{stand.size}}</td>
         <td>{{stand.floor}}</td>
         <td>{{stand.price}} Bs</td>
-        <td>Si <button class="btn btn-success" (click)="buyStand(stand.id, stand.size, stand.floor, stand.price,user.uid)">Comprar</button> </td>
+        <td>Si <button *ngIf="onlineOffline" class="btn btn-success" (click)="buyStand(stand.id, stand.size, stand.floor, stand.price,user.uid,user.displayName)">Comprar</button> </td>
       </tr>
     </tbody>
     <tbody *ngFor="let stand of stands |async">
