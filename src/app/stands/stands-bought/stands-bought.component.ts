@@ -14,13 +14,14 @@ import { User } from '../../interfaces/user';
 
 export class StandsBoughtComponent implements OnInit {
 purchases: Observable<Purchase[]>;
-user:User;
+// user:Observable<User>;
   constructor(public db:FirestoreService, public auth:AuthService) { }
 
   ngOnInit() {
     // this.user.uid= this.db.doc$(`users/${this.auth.user}`)
     // const Id = this.auth.user.displayName
     this.purchases = this.db.col$('purchases');
+    // this.user= this.db.doc$(`users/${this.auth.user}`)
   }
 
 }

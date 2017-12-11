@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody *ngFor="let purchase of purchases |async">
-      <tr>
+      <tr *ngIf="purchase.idUser ==user.uid">
         <td>{{purchase.idStand}}</td>
         <td>{{purchase.size}}</td>
         <td>{{purchase.floor}}</td>
