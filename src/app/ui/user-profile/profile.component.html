@@ -29,7 +29,7 @@
           <h6 class="card-subtitle text-muted" *ngIf="user.isAdmin">Admin</h6>
           <h6 class="card-subtitle text-muted" *ngIf="!user.isAdmin">Regular</h6>
         </div>
-        <img style="height: 100px width: 100%; display: block;" [src]="user.photoURL || 'https://cad.onshape.com/images/placeholder-user.png'" alt="Card image">
+        <img style="height: 100px width: 100px; display: block;" [src]="user.photoURL || 'https://cad.onshape.com/images/placeholder-user.png'" alt="Card image">
         <div class="card-body">
           <p class="card-text">Nacionalidad: {{user.nationality}}</p>
           <p class="card-text">Empresa: {{user.company}}</p>

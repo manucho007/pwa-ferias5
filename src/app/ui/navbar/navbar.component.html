@@ -10,23 +10,23 @@
         <a class="nav-link" routerLink="/">Inicio <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="stands-list">Stands</a>
+        <a class="nav-link" routerLink="/lazy/stands-list">Stands</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="users-list" >Expositores</a>
+        <a class="nav-link" routerLink="/lazy/users-list" >Expositores</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="stands-bought">Mis Stands</a>
+        <a class="nav-link" routerLink="/lazy/stands-bought">Mis Stands</a>
       </li>
       <div id="admin" *ngIf="auth.user | async as user">
         <li class="nav-item" >
-          <a class="nav-link" routerLink="users-add" *ngIf="user.isAdmin">Añadir Expositores</a>
+          <a class="nav-link" routerLink="/lazy/users-add" *ngIf="user.isAdmin">Añadir Expositores</a>
         </li>
         <li class="nav-item" >
-          <a class="nav-link" routerLink="stands-add" *ngIf="user.isAdmin">Añadir Stands</a>
+          <a class="nav-link" routerLink="/lazy/stands-add" *ngIf="user.isAdmin">Añadir Stands</a>
         </li>
         <li class="nav-item" >
-          <a class="nav-link" routerLink="stands-sell" *ngIf="user.isAdmin">Venta de Stands</a>
+          <a class="nav-link" routerLink="/lazy/stands-sell" *ngIf="user.isAdmin">Venta de Stands</a>
         </li>
       </div>
     </ul>
