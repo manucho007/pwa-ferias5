@@ -129,11 +129,11 @@ getUser(){
       uid: user.uid,
       email: user.email || 'pruebas@example.com',
       displayName: user.displayName || 'invitado',
-      photoURL: user.photoURL || 'https://cad.onshape.com/images/placeholder-user.png',
-      company:  user.company || 'test company',
-      nationality: user.nationality ||'Boliviana',
-      mainActivity:user.mainActivity || 'Pruebas',
-      secondActivity:user.secondActivity || 'Pruebas'
+      photoURL: user.photoURL || 'https://cad.onshape.com/images/placeholder-user.png'
+      // company:  user.company || 'test company',
+      // nationality: user.nationality ||'Boliviana',
+      // mainActivity:user.mainActivity || 'Pruebas',
+      // secondActivity:user.secondActivity || 'Pruebas'
     }
 
     return  userRef.update(data)
